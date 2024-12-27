@@ -1831,3 +1831,89 @@ body {
   background-color: var(--rich-black-fogra-29-1);
 }
 
+.auth-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.auth-modal.is-visible {
+  display: flex;
+}
+
+.auth-modal-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  margin: auto; /* Ensure modal is centered */
+}
+
+.close-auth-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.auth-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldset label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.fieldset input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.fieldset input:focus {
+  border-color: var(--coquelicot);
+  outline: none;
+}
+
+.fieldset input[type="submit"] {
+  background-color: var(--coquelicot);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.fieldset input[type="submit"]:hover {
+  background-color: var(--rich-black-fogra-29-1);
+}
+
+.switch-to-register,
+.switch-to-login {
+  background: none;
+  border: none;
+  color: var(--coquelicot);
+  cursor: pointer;
+  text-decoration: underline;
+}
+

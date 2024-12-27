@@ -97,7 +97,7 @@
 
       </nav>
 
-      <a href="https://api.whatsapp.com/send?phone=87082845298&text=Здравствуйте!" class="btn btn-secondary">Начать</a>
+      <a href="#" class="btn btn-secondary login-btn">Войти</a>
 
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler> 
         <span class="line"></span>
@@ -752,6 +752,49 @@
         <p class="blog-text"></p>
         <button class="like-button"><ion-icon name="heart"></ion-icon> Лайк</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal form for login/register -->
+  <div class="auth-modal">
+    <div class="auth-modal-container">
+      <button class="close-auth-modal" aria-label="close modal">&times;</button>
+      <form class="auth-form">
+        <p class="fieldset">
+          <label for="auth-email">E-mail</label>
+          <input class="full-width has-padding has-border" id="auth-email" type="email" placeholder="E-mail" required>
+        </p>
+        <p class="fieldset">
+          <label for="auth-password">Пароль</label>
+          <input class="full-width has-padding has-border" id="auth-password" type="password" placeholder="Пароль" required>
+        </p>
+        <p class="fieldset">
+          <input class="full-width" type="submit" value="Войти">
+        </p>
+        <p class="fieldset">
+          <button type="button" class="switch-to-register">Регистрация</button>
+        </p>
+      </form>
+      <form class="register-form" style="display: none;">
+        <p class="fieldset">
+          <label for="register-email">E-mail</label>
+          <input class="full-width has-padding has-border" id="register-email" type="email" placeholder="E-mail" required>
+        </p>
+        <p class="fieldset">
+          <label for="register-password">Пароль</label>
+          <input class="full-width has-padding has-border" id="register-password" type="password" placeholder="Пароль" required>
+        </p>
+        <p class="fieldset">
+          <label for="register-confirm-password">Подтвердите Пароль</label>
+          <input class="full-width has-padding has-border" id="register-confirm-password" type="password" placeholder="Подтвердите Пароль" required>
+        </p>
+        <p class="fieldset">
+          <input class="full-width" type="submit" value="Регистрация">
+        </p>
+        <p class="fieldset">
+          <button type="button" class="switch-to-login">Войти</button>
+        </p>
+      </form>
     </div>
   </div>
 
