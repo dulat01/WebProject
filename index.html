@@ -74,7 +74,7 @@
         <ul class="navbar-list">
 
           <li>
-            <a href="#home" class="navbar-link active" data-nav-link>Домой</a>
+            <a href="#home" class="navbar-link" data-nav-link>Домой</a>
           </li>
 
           <li>
@@ -124,9 +124,6 @@
       
           <div class="titleHome">
               <h1 class="title">Выиграй в FitNext!</h1>
-              <p>Приложите все усилия сегодня, и вы будете благодарны себе в будущем.
-                 Каждая капля пота - это шаг к достижению ваших целей. 
-                 Давайте добиваться прогресса вместе!</p>
           </div>
       </section>
 
@@ -406,7 +403,7 @@
             </li>
 
           </ul>
-
+          <button class="btn btn-primary signup-btn">Записаться</button>
         </div>
       </section>
 
@@ -714,6 +711,49 @@
 
 
 
+
+  <!-- Modal form -->
+  <div class="user-modal">
+    <div class="user-modal-container">
+      <button class="close-modal" aria-label="close modal">&times;</button>
+      <form class="form">
+        <p class="fieldset">
+          <label for="signup-fio">ФИО</label>
+          <input class="full-width has-padding has-border" id="signup-fio" type="text" placeholder="ФИО" required>
+        </p>
+        <p class="fieldset">
+          <label for="signup-phone">Номер телефона</label>
+          <input class="full-width has-padding has-border" id="signup-phone" type="tel" placeholder="Номер телефона" required>
+        </p>
+        <p class="fieldset">
+          <label for="signup-email">E-mail</label>
+          <input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" required>
+        </p>
+        <p class="fieldset">
+          <label for="signup-course">Курс</label>
+          <select class="full-width has-padding has-border" id="signup-course" required>
+            <option value="" disabled selected>Выберите курс</option>
+          </select>
+        </p>
+        <p class="fieldset">
+          <input class="full-width" type="submit" value="Записаться">
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for blog article -->
+  <div class="blog-modal">
+    <div class="blog-modal-container">
+      <button class="close-blog-modal" aria-label="close modal">&times;</button>
+      <div class="blog-content">
+        <img class="blog-image" src="" alt="Blog Image">
+        <h2 class="blog-title"></h2>
+        <p class="blog-text"></p>
+        <button class="like-button"><ion-icon name="heart"></ion-icon> Лайк</button>
+      </div>
+    </div>
+  </div>
 
   <!-- 
     - custom js link

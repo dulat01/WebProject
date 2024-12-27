@@ -363,7 +363,9 @@ body {
   width: 100%;
   padding-block: 10px;
   box-shadow: var(--shadow-1);
-  z-index: 4;
+  z-index: 1002; /* Ensure header is always on top */
+  opacity: 0; /* Hide header initially */
+  transition: opacity 0.5s ease; /* Smooth transition for showing header */
 }
 
 .header > .container {
@@ -448,6 +450,18 @@ body {
 }
 
 .navbar-link:is(:hover, :focus, .active) { color: var(--rich-black-fogra-29-1); }
+
+.header .navbar-link:is(:hover, :focus, .active) { 
+  color: var(--coquelicot); 
+}
+
+.header.active .navbar-link:is(:hover, :focus, .active) { 
+  color: var(--coquelicot); 
+}
+
+.header:not(.active) .navbar-link:is(:hover, :focus, .active) { 
+  color: var(--rich-black-fogra-29-1); 
+}
 
 
 
@@ -721,6 +735,40 @@ body {
   border-radius: inherit;
 }
 
+.class-list {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding-block-end: 30px;
+  scroll-snap-type: x mandatory; /* Changed to horizontal scroll */
+}
+
+.scrollbar-item {
+  min-width: 100%;
+  scroll-snap-align: start;
+}
+
+.class-list {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.class-list::-webkit-scrollbar {
+  height: 10px;
+}
+
+.class-list::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+.class-list::-webkit-scrollbar-thumb {
+  background: var(--coquelicot);
+}
+
+.class-list::-webkit-scrollbar-thumb:hover {
+  background: var(--rich-black-fogra-29-1);
+}
+
 
 
 
@@ -774,9 +822,87 @@ body {
 
 .blog-card .btn-link:is(:hover, :focus) { --color: var(--rich-black-fogra-29-1); }
 
+.blog-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1003; /* Ensure modal is above all other elements */
+}
 
+.blog-modal.is-visible {
+  display: flex;
+}
 
+.blog-modal-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
 
+.close-blog-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--rich-black-fogra-29-1);
+}
+
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.blog-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.blog-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--rich-black-fogra-29-1);
+}
+
+.blog-text {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: var(--rich-black-fogra-29-1);
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--coquelicot);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius-8);
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: background-color 0.3s;
+}
+
+.like-button:hover {
+  background-color: var(--rich-black-fogra-29-1);
+}
 
 /*-----------------------------------*\
   #FOOTER
@@ -1209,6 +1335,14 @@ body {
 
   .header .navbar-link:is(:hover, :focus, .active) { color: var(--coquelicot); }
 
+  .header.active .navbar-link:is(:hover, :focus, .active) { 
+    color: var(--coquelicot); 
+  }
+
+  .header:not(.active) .navbar-link:is(:hover, :focus, .active) { 
+    color: var(--rich-black-fogra-29-1); 
+  }
+
   .header.active .btn {
     background-color: var(--coquelicot);
     color: var(--white);
@@ -1400,6 +1534,7 @@ body {
   .footer-top .container { grid-template-columns: 1fr 0.6fr 0.9fr 1fr; }
 
 }
+
 .container1
 {
   height: 100vh;
@@ -1535,7 +1670,7 @@ body {
   width: 100%;
   height: 100vh;
   position: absolute;
-  z-index: 5;
+  z-index: 1001; /* Ensure loader is above header */
   /* display: none; */
   }
   .parentswrapper .loader{
@@ -1583,5 +1718,82 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.user-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.user-modal.is-visible {
+  display: flex;
+}
+
+.user-modal-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldset label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.fieldset input,
+.fieldset select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.fieldset input:focus,
+.fieldset select:focus {
+  border-color: var(--coquelicot);
+  outline: none;
+}
+
+.fieldset input[type="submit"] {
+  background-color: var(--coquelicot);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.fieldset input[type="submit"]:hover {
+  background-color: var(--rich-black-fogra-29-1);
 }
 
