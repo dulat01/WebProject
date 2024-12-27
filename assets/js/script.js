@@ -131,6 +131,35 @@ window.addEventListener("click", (event) => {
   }
 });
 
+// Form validation and error handling
+const form = document.querySelector(".form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const fio = document.getElementById("signup-fio").value.trim();
+  const phone = document.getElementById("signup-phone").value.trim();
+  const email = document.getElementById("signup-email").value.trim();
+  const course = document.getElementById("signup-course").value;
+
+  if (!fio || !phone || !email || !course) {
+    alert("Пожалуйста, заполните все поля.");
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    alert("Пожалуйста, введите корректный email.");
+    return;
+  }
+
+  // Simulate form submission
+  alert("Форма успешно отправлена!");
+  modal.classList.remove("is-visible");
+});
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
 // Populate course dropdown
 const courseDropdown = document.getElementById("signup-course");
 const courses = ["Поднятие тяжестей", "Кардиотренировка", "Йога", "Фитнес-пакет"];
@@ -234,4 +263,16 @@ const likeButton = document.querySelector(".like-button");
 
 likeButton.addEventListener("click", () => {
   alert("Спасибо за ваш лайк!");
+});
+
+// Video play functionality
+const playButton = document.querySelector(".play-btn");
+playButton.addEventListener("click", () => {
+  const videoCard = document.querySelector(".video-card");
+  videoCard.innerHTML = `
+    <video width="100%" height="100%" controls autoplay>
+      <source src="./assets/videos/video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  `;
 });
